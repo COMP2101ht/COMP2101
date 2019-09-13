@@ -1,7 +1,7 @@
 #!/bin/bash
 # My third script - helloworldugly.#!/bin/sh
 # This is a silly way of creating the output text by starting with something else and stream editing it in a pineline
-echo -n "hello world" |
+echo -n "helb wold" |
   sed -e "s/b/o/g" -e "s/l/ll/" -e "s/ol/orl"
   tr "h" "H"|
   tr "w" "W"|
