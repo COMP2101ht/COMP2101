@@ -16,8 +16,8 @@
 echo "Rolling..."
 # roll the dice and save the results
 sides=6
-bias= 1
-random=$RAMDOM
+bias=1
+RAMDOM=$RAMDOM
 die1=$(( RANDOM % $sides + bias))
 die2=$(( RANDOM % $sides + bias))
 # sum up the rolls
