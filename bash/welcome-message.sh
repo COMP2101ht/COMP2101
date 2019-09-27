@@ -14,16 +14,16 @@
 ###############
 
 
-now=$(%Y-%M-%d%%H:%M:%S)
+date=$(date)
 title="Overlord"
 myname="dennis"
-hostname=$(hostnname)
+user=$(whoami)
 
 ###############
 # Main        #
 ###############
 cat <<EOF
 
-Welcome to planet $hostname, "$title $myname!"
-It is $now on wekkday
+Welcome to planet $user, "$title $myname!"
+Today is $date
 EOF
