@@ -15,11 +15,15 @@
 # Tell the user we have started processing
 echo "Rolling..."
 # roll the dice and save the results
-sides=$[RANDOM%6+1]
-die1=$(( RANDOM % $sides + 1))
-die2=$(( RANDOM % $sides + 1 ))
+sides=6
+bias= 1
+random=$RAMDOM
+die1=$(( RANDOM % $sides + bias))
+die2=$(( RANDOM % $sides + bias))
 # sum up the rolls
 sum=$(( die1 + die2 ))
+
+average=$sum/2
 # display the results
 echo "Rolled $die1, $die2 for a $sum"
-ABS(CHECKSUM(sum))%1
+echo "Rolled $die1, $die2 and an average is $average"

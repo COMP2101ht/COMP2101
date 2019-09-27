@@ -23,5 +23,5 @@ $(( RANDOM % 6 + 1 )), $(( RANDOM % 6 + 1 )), $(( RANDOM % 6 + 1 )), $(( RANDOM 
 
 echo "
 Rolling a 20-sided dice
-$(( RANDOM % 19 + 1 )) rolled
+$(( RANDOM % 20 + 1 )) rolled
 "
