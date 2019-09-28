@@ -25,5 +25,3 @@ user=$(whoami)
 
 welcome=$(Welcome to planet $user, "$title $myname!")
 date=$(Today is $date)
-output=$welcome $date
-cowsay -f $output
