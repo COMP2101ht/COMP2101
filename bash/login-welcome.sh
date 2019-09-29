@@ -23,5 +23,9 @@ user=$(whoami)
 # Main        #
 ###############
 
-welcome=$(Welcome to planet $user, "$title $myname!")
-date=$(Today is $date)
+output="$(cat <<EOF
+Welcome to planet $user, "$title $myname!"
+Today is $date
+EOF
+)"
+cowsay "$output"
