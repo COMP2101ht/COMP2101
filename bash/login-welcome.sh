@@ -14,18 +14,17 @@
 ###############
 
 
-date=$(date)
-title="Overlord"
-myname="dennis"
-user=$(whoami)
-
 ###############
 # Main        #
 ###############
 
-output="$(cat <<EOF
-Welcome to planet $user, "$title $myname!"
-Today is $date
-EOF
-)"
-cowsay "$output"
+
+
+# using the value in the automatic variable $USER for the name
+user=$(whoami)
+
+#  adding some time and day of the week information to the welcome message
+
+weekday=$(date)
+
+echo "Welcome to planet $user, It is $weekday AM on weekday" |cowsay
