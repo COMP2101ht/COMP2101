@@ -22,7 +22,9 @@ die2=$(( RANDOM % $sides + bias))
 # sum up the rolls
 sum=$(( die1 + die2 ))
 
+#  generate the average of the dice
 average=$(($sum/2))
+
 # display the results
 echo "Rolled $die1, $die2 for a $sum"
 echo "Rolled $die1, $die2 and an average is $average"
