@@ -29,7 +29,7 @@
 # finding external information relies on curl being installed and relies on live internet connection
 # awk is used to extract only the data we want displayed from the commands which produce extra data
 # this command is ugly done this way, so generating the output data into variables is recommended to make the script more readable.
-# e.g. 
+# e.g.
 #   interface_name=$(ip a |awk '/: e/{gsub(/:/,"");print $2}')
 
 cat <<EOF
@@ -40,3 +40,40 @@ External IP     : $(curl -s icanhazip.com)
 External Name   : $(getent hosts $(curl -s icanhazip.com) | awk '{print $2}')
 EOF
 
+# TASK 1:
+
+echo "---------IMPROVE---------"
+
+myhostname=$(hostname)
+interface=$(ip a | awk '/: e/{gsub(/:/,"");print $2}')
+LANaddress=$(ip a s $interface | awk '/inet /{gsub(/\/.*/,"");print $2}')
+LANhostname=$(getent hosts $LANaddress | awk '{print $2}')
+ExternalIP=$(curl -s icanhazip.com)
+Externalname=$(getent hosts $ExternalIP | awk '{print $2}')
+
+cat <<EOF
+Hostname          : $myhostname
+LAN Address       : $LANaddress
+LAN hostname      : $LANhostname
+EXternal IP       : $ExternalIP
+External name     : $Externalname
+EOF
+
+
+#TASK 2:
+router_hostname=$(getent hosts "$(ip route show | awk '/default/ {print $3}')" | awk '{print $2}')
+router_address=$(ip route show | grep 'default' | awk '{print $3}')
+
+cat <<EOF
+Router Address    : $router_address
+Router Hostname   : $router_hostname
+EOF
+
+#TASK 3:
+Network_number=$(getent networks | awk '{print $2}')
+Network_name=$(getent networks | awk '{print $1}')
+
+cat <<EOF
+Network Number    : $Network_number
+Network Name      : $Network_name
+EOF
