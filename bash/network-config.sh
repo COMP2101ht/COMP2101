@@ -62,7 +62,7 @@ EOF
 
 #TASK 2:
 router_hostname=$(getent hosts "$(ip route show | awk '/default/ {print $3}')" | awk '{print $2}')
-router_address=$(ip route show | grep 'default' | awk '{print $3}')
+router_address=$(ip route show | grep default | awk '{print $3}')
 
 cat <<EOF
 Router Address    : $router_address

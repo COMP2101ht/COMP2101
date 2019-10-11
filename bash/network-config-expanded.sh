@@ -61,8 +61,17 @@ EOF
 # Per-interface report
 #####
 # define the interface being summarized
-interface="eno1"
 
+
+echo "-----------IMPROVE------------"
+
+#Dynamically identify the interface names
+
+for interface in $( ls /sys/class/net );
+
+do
+#for interface in $(ifconfig | cut -d ' ' -f1| tr ':' '\n' | awk NF )
+#do
 # Find an address and hostname for the interface being summarized
 # we are assuming there is only one IPV4 address assigned to this interface
 ipv4_address=$(ip a s $interface|awk -F '[/ ]+' '/inet /{print $3}')
@@ -85,3 +94,4 @@ EOF
 #####
 # End of per-interface report
 #####
+done
